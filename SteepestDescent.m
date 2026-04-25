@@ -1,0 +1,19 @@
+clc
+clear all
+f = @(x1,x2) x1^2 + 2*x2^2;
+grad_f = @(x1,x2) [2*x1;4*x2];
+x=[3;3];
+max_iter = 100;
+tol = 1e-6;
+alpha = 0.1;
+fprintf("initial pt : (%f,%f)\n",x(1),x(2));
+for iter = 1:max_iter
+    gradient = grad_f(x(1),x(2));
+    if norm(gradient)<tol
+        fprintf("converge after %d iterations\n",iter-1);
+        break;
+    end
+    x=x-alpha*gradient;
+end
+fprintf("final pt : (%f,%f)\n", x(1), x(2));
+fprintf("min function value: %f",f(x(1),x(2)));
