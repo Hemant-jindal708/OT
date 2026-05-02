@@ -36,7 +36,6 @@ for i = 1:size(cost,1)
         cost(ii,jj)=inf;
     end
 end
-% Calculate the total cost based on the allocation in X
 fprintf("BFS=\n");
 IBFS = array2table(X);
 disp(IBFS)
